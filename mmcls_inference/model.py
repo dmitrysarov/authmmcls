@@ -3,7 +3,6 @@ from typing import Any, Dict, Tuple
 import albumentations as A
 import cv2
 import numpy as np
-import numpy.typing as npt
 import torch
 from albumentations.pytorch.transforms import ToTensorV2
 from mmcls.models import build_classifier
@@ -59,7 +58,7 @@ class AuthModel:
             ]
         )
 
-    def preprocess(self, image: npt.NDArray[Any]) -> Any:
+    def preprocess(self, image: np.ndarray) -> Any:
         return self.transform(image=cv2.cvtColor(image, cv2.COLOR_BGR2RGB))["image"]
 
     def predict(self, image: npt.NDArray[Any]) -> Any:
