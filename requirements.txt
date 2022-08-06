@@ -651,6 +651,7 @@ xmltodict==0.12.0
     # via
     #   -r requirements.txt
     #   fiftyone
+mmcls==0.23.2
 
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools
