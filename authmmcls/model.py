@@ -15,7 +15,7 @@ class AuthModel:
     MEAN: Tuple[float, float, float] = (123.675, 116.28, 103.53)
     STD: Tuple[float, float, float] = (58.395, 57.12, 57.375)
     CLASSES: Tuple[str, str, str, str] = ("fraud", "authentic", "wrappingfoil_authentic", "void")
-    CLASS_MAPPING: Dict[int:int] = {3: 0, 2: 1}
+    CLASS_MAPPING: Dict[int, int] = {3: 0, 2: 1}
 
     def __init__(self, weights_path: str, image_size: int = 224, device: str = "cpu") -> None:
         self.weights_path = weights_path
