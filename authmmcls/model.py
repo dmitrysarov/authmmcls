@@ -7,6 +7,7 @@ import torch
 from albumentations.pytorch.transforms import ToTensorV2
 from mmcls.models import build_classifier
 from mmcv.runner import load_checkpoint
+from functools import partial
 
 from .cached_property import cached_property
 
@@ -45,6 +46,7 @@ class AuthModel:
         )
         load_checkpoint(mmcls_model, self.weights_path)
         mmcls_model.eval()
+        mmcls_model.forward = partial(mmcls_model.forward, img_metas={}, return_loss=False)
         mmcls_model.to(self.device)
         return mmcls_model
 
