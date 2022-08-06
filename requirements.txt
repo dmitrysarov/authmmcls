@@ -41,7 +41,6 @@ boto3==1.17.97
     # via
     #   -r requirements.txt
     #   fiftyone
-    #   mlog
 botocore==1.20.97
     # via
     #   -r requirements.txt
@@ -250,8 +249,6 @@ matplotlib-inline==0.1.2
     #   -r requirements.txt
     #   ipython
 mlflow==1.18.0
-    # via -r requirements.txt
-mlog @ git+https://gitlab-git-repo:GZG8aN9gpo1epmzWx_Zn@gitlab.com/checklens/common/mlog.git@v0.0.8
     # via -r requirements.txt
 mongoengine==0.20.0
     # via
