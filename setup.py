@@ -19,6 +19,7 @@ def get_install_requires():
 setup(
     name="authmmcls",
     author="dmitrii.shaulskii",
+    version="0.0.1",
     description="inference model for classification",
     long_description_content_type="text/markdown",
     packages=find_packages(),
