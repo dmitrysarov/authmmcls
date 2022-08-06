@@ -61,7 +61,7 @@ class AuthModel:
     def preprocess(self, image: np.ndarray) -> Any:
         return self.transform(image=cv2.cvtColor(image, cv2.COLOR_BGR2RGB))["image"]
 
-    def predict(self, image: npt.NDArray[Any]) -> Any:
+    def predict(self, image: np.ndarray) -> Any:
         """
         Parameters
         ----------
