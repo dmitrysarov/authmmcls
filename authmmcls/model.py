@@ -6,7 +6,10 @@ import numpy as np
 import torch
 from albumentations.pytorch.transforms import ToTensorV2
 from mmcls.models import build_classifier
+from mmcls.datasets.builder import build_from_cfg, PIPELINES
+from mmcls.datasets.pipelines.compose import Compose
 from mmcv.runner import load_checkpoint
+import mmcv
 from functools import partial
 
 from .cached_property import cached_property
@@ -30,7 +33,7 @@ class AuthModel:
                 type="ImageClassifier",
                 backbone=dict(
                     type="TIMMBackbone",
-                    pretrained=True,
+                    pretrained=False,
                     model_name="mobilenetv3_large_100_miil_in21k",
                     init_cfg=None,
                 ),
@@ -44,7 +47,7 @@ class AuthModel:
                 ),
             )
         )
-        load_checkpoint(mmcls_model, self.weights_path)
+        load_checkpoint(mmcls_model, self.weights_path, strict=True, map_location="cpu")
         mmcls_model.eval()
         mmcls_model.forward = partial(mmcls_model.forward, img_metas={}, return_loss=False)
         mmcls_model.to(self.device)
@@ -52,16 +55,23 @@ class AuthModel:
 
     @cached_property
     def transform(self) -> Any:  # noqa
-        return A.Compose(
-            transforms=[
-                A.Resize(height=self.image_size, width=self.image_size),
-                A.Normalize(mean=AuthModel.MEAN, std=AuthModel.STD),
-                ToTensorV2(),
-            ]
-        )
+        img_norm_cfg = dict(mean=AuthModel.MEAN, std=AuthModel.STD, to_rgb=True)
+        albu_val_transforms = [
+            dict(type="LongestMaxSize", max_size=self.image_size),
+            dict(type="PadIfNeeded", min_height=self.image_size, min_width=self.image_size, border_mode=0, value=list(img_norm_cfg["mean"])[::-1]),
+        ]
+        test_pipeline = [
+            dict(
+                type="Albu",
+                transforms=albu_val_transforms,
+            ),
+            dict(type="Normalize", **img_norm_cfg),
+            dict(type="ImageToTensor", keys=["img"]),
+            dict(type="Collect", keys=["img"])]
+        return Compose([PIPELINES.build(p) for p in test_pipeline])
 
     def preprocess(self, image: np.ndarray) -> Any:
-        return self.transform(image=cv2.cvtColor(image, cv2.COLOR_BGR2RGB))["image"]
+        return self.transform(dict(image=image))['img']
 
     def predict(self, image: np.ndarray) -> Any:
         """
@@ -73,8 +83,9 @@ class AuthModel:
         ----------
             class
         """
+        image = self.preprocess(image)
         with torch.no_grad():
-            output = self.model(self.preprocess(image).to(self.device))
+            output = self.model(image.unsqueeze(0).to(self.device))
         class_id = np.argmax(output)
         class_id = AuthModel.CLASS_MAPPING.get(class_id, class_id)
         return AuthModel.CLASSES[class_id]
