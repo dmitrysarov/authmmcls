@@ -23,7 +23,6 @@ anyio==3.2.0
 argcomplete==1.12.3
     # via
     #   -r requirements.txt
-    #   fiftyone
     #   voxel51-eta
 attrs==21.2.0
     # via
@@ -40,7 +39,6 @@ backcall==0.2.0
 boto3==1.17.97
     # via
     #   -r requirements.txt
-    #   fiftyone
 botocore==1.20.97
     # via
     #   -r requirements.txt
@@ -87,7 +85,6 @@ decorator==4.4.2
 deprecated==1.2.12
     # via
     #   -r requirements.txt
-    #   fiftyone
 dill==0.3.4
     # via
     #   -r requirements.txt
@@ -111,17 +108,6 @@ entrypoints==0.3
 eventlet==0.31.0
     # via
     #   -r requirements.txt
-    #   fiftyone
-fiftyone==0.9.4
-    # via -r requirements.txt
-fiftyone-brain==0.6.1
-    # via
-    #   -r requirements.txt
-    #   fiftyone
-fiftyone-db==0.2.1
-    # via
-    #   -r requirements.txt
-    #   fiftyone
 flask==2.0.1
     # via
     #   -r requirements.txt
@@ -130,7 +116,6 @@ flask==2.0.1
 future==0.18.2
     # via
     #   -r requirements.txt
-    #   fiftyone
     #   voxel51-eta
 gitdb==4.0.7
     # via
@@ -206,7 +191,6 @@ jedi==0.18.0
 jinja2==3.0.1
     # via
     #   -r requirements.txt
-    #   fiftyone
     #   flask
     #   sphinx
 jmespath==0.10.0
@@ -223,7 +207,6 @@ jpeg4py==0.1.4
 kaleido==0.2.1
     # via
     #   -r requirements.txt
-    #   fiftyone
 kiwisolver==1.3.1
     # via
     #   -r requirements.txt
@@ -242,7 +225,6 @@ markupsafe==2.0.1
 matplotlib==3.4.2
     # via
     #   -r requirements.txt
-    #   fiftyone
     #   scikit-image
 matplotlib-inline==0.1.2
     # via
@@ -253,11 +235,9 @@ mlflow==1.18.0
 mongoengine==0.20.0
     # via
     #   -r requirements.txt
-    #   fiftyone
 motor==2.4.0
     # via
     #   -r requirements.txt
-    #   fiftyone
 mypy-extensions==0.4.3
     # via
     #   -r requirements.txt
@@ -274,8 +254,6 @@ numpy==1.19.5
     # via
     #   -r requirements.txt
     #   albumentations
-    #   fiftyone
-    #   fiftyone-brain
     #   imagehash
     #   imageio
     #   jpeg4py
@@ -300,12 +278,10 @@ opencv-python-headless==4.4.0.46
     # via
     #   -r requirements.txt
     #   albumentations
-    #   fiftyone
     #   voxel51-eta
 packaging==20.9
     # via
     #   -r requirements.txt
-    #   fiftyone
     #   mlflow
     #   pandera
     #   pytest
@@ -314,7 +290,6 @@ packaging==20.9
 pandas==1.2.4
     # via
     #   -r requirements.txt
-    #   fiftyone
     #   mlflow
     #   pandera
 pandera==0.9.0
@@ -338,7 +313,6 @@ pickleshare==0.7.5
 pillow==8.2.0
     # via
     #   -r requirements.txt
-    #   fiftyone
     #   imagehash
     #   imageio
     #   matplotlib
@@ -350,7 +324,6 @@ plotext==3.1.3
 plotly==4.14.3
     # via
     #   -r requirements.txt
-    #   fiftyone
 pluggy==0.13.1
     # via
     #   -r requirements.txt
@@ -358,7 +331,6 @@ pluggy==0.13.1
 pprintpp==0.4.0
     # via
     #   -r requirements.txt
-    #   fiftyone
 prometheus-client==0.11.0
     # via
     #   -r requirements.txt
@@ -378,7 +350,6 @@ protobuf==3.17.3
 psutil==5.8.0
     # via
     #   -r requirements.txt
-    #   fiftyone
 ptyprocess==0.7.0
     # via
     #   -r requirements.txt
@@ -407,7 +378,6 @@ pygments==2.9.0
 pymongo==3.11.4
     # via
     #   -r requirements.txt
-    #   fiftyone
     #   mongoengine
     #   motor
 pyparsing==2.4.7
@@ -462,7 +432,6 @@ requests==2.25.1
 retrying==1.3.3
     # via
     #   -r requirements.txt
-    #   fiftyone
     #   plotly
     #   voxel51-eta
 rfc3986[idna2008]==1.5.0
@@ -477,18 +446,14 @@ scikit-image==0.18.1
     # via
     #   -r requirements.txt
     #   albumentations
-    #   fiftyone
     #   voxel51-eta
 scikit-learn==0.24.2
     # via
     #   -r requirements.txt
-    #   fiftyone
-    #   fiftyone-brain
 scipy==1.6.3
     # via
     #   -r requirements.txt
     #   albumentations
-    #   fiftyone-brain
     #   imagehash
     #   scikit-image
     #   scikit-learn
@@ -564,7 +529,6 @@ tabulate==0.8.9
     # via
     #   -r requirements.txt
     #   databricks-cli
-    #   fiftyone
     #   voxel51-eta
 terminaltables==3.1.0
     # via -r requirements.txt
@@ -595,7 +559,6 @@ torchvision==0.9.1
 tornado==6.1
     # via
     #   -r requirements.txt
-    #   fiftyone
 traitlets==5.0.5
     # via
     #   -r requirements.txt
@@ -620,7 +583,6 @@ tzlocal==2.1
 universal-analytics-python3==1.1.1
     # via
     #   -r requirements.txt
-    #   fiftyone
 urllib3==1.26.5
     # via
     #   -r requirements.txt
@@ -629,7 +591,6 @@ urllib3==1.26.5
 voxel51-eta==0.4.1
     # via
     #   -r requirements.txt
-    #   fiftyone
 wcwidth==0.2.5
     # via
     #   -r requirements.txt
@@ -650,7 +611,6 @@ wrapt==1.12.1
 xmltodict==0.12.0
     # via
     #   -r requirements.txt
-    #   fiftyone
 mmcls==0.23.2
 mmcv-full==1.6.1
 # The following packages are considered to be unsafe in a requirements file:
